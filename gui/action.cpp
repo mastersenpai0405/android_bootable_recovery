@@ -2230,6 +2230,7 @@ int GUIAction::fixabrecoverybootloop(std::string arg __unused)
 		DataManager::SetProgress(.75);
 		std::string path = REPACK_ORIG_DIR;
 		std::string file = "new-boot.img";
+		std::string command = "cd REPACK_ORIG_DIR " && /system/bin/magiskboot hexpatch new-boot.img 0300000000617662746F6F6C20 0000000000617662746F6F6C20;
 		DataManager::SetValue("tw_flash_partition", "/boot;");
 		if (!PartitionManager.Flash_Image(path, file)) {
 			LOGINFO("Error flashing new image\n");
